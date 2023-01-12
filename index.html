@@ -29,6 +29,7 @@
           text="font: exo2bold; align: center; width: 2; color: #000; value: Comic Store!"
         >
           <a-entity
+          info-banner
             id="app-subtitle"
             position="0 -0.1 0"
             text="font: dejavu; align: center; width: 1; color: #0F184E; value: See each comic in detail"
@@ -36,23 +37,27 @@
         </a-entity>
 
         <!--Background-->
-        <a-entity> </a-entity>
+   
 
         <a-entity id="camera-cursor"
         cursor
         position="0 0 -1"
         geometry="primitive:ring ; radiusInner:0.01 ; radiusOuter:0.02 ; "
         material="color:blue ; shader:flat"
+        
         > </a-entity>
 
         <a-entity id="fadeBackground"
-        cursor-listener
+      
         position="0 0 -1"
         geometry="primitive:sphere ; radius:2.5 ; "
         material="color:blue ; shader:flat ; side:back ; transparent:true; opacity:0.6"
         visible="false"
-
+        cursor-listener
+        
         > </a-entity>
+
+      
       </a-camera>
     </a-scene>
   </body>
