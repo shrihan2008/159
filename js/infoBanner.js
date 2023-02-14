@@ -7,7 +7,25 @@ AFRAME.registerComponent('info-banner',{
     init: function(){
         this.placesContainer=this.el
         this.createCards()
+       
+        this.handleMouseLeaveEvents()
 
+    },
+    update:function(){
+        const fadebg=document.querySelector("#fadebackground")
+        c=fadebg.children
+
+        if(c.length>0){
+            var i
+            for(i=0; i<=c.length ;i++){
+                fadebg.removeChild(c[i])
+            }
+           
+
+        }
+        else{
+        this.handleClickEvents()
+        }
     },
 
     createTitle:function(position,item){
@@ -115,5 +133,38 @@ AFRAME.registerComponent('info-banner',{
                 src:item.url
             });
             return entitye1
+    },
+
+    handleClickEvents:function(){
+        this.el.addEventListener("click",evt=>{
+            const placesContainer=document.querySelector("#places_container");
+            const {state} = placesContainer.setAttribute("tour")
+
+            if(state==="places_list"){
+                const id=this.el.getAttribute("id");
+                const places_id=["avengers","superman","spiderman","calvin"];
+                if(places_id.includes(id)){
+                    placesContainer.setAttribute("tour",{
+                        state:"view",
+                        selected_card:id
+                    })
+
+                }
+
+            }
+        })
+    },
+
+    handleMouseLeaveEvents:function(){
+        this.el.addEventListener("mouseleave",()=>{
+            const {selected_item_id}=this.data;
+            if(selected_item_id){
+                const el=document.querySelector(`#${selected_item_id}`);
+                const id=el.getAttribute("id")
+                if(id==selected_item_id){
+                    el.setAttribute("material",{color:"yellow",opacity:1})
+                }
+            }
+        })
     },
 })
