@@ -13,7 +13,7 @@ AFRAME.registerComponent('info-banner',{
     },
     update:function(){
         const fadebg=document.querySelector("#fadebackground")
-        c=fadebg.children
+        c=fadebg.children()
 
         if(c.length>0){
             var i
