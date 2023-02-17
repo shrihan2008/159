@@ -13,7 +13,7 @@ AFRAME.registerComponent('info-banner',{
     },
     update:function(){
         const fadebg=document.querySelector("#fadebackground")
-        c=fadebg.children()
+        c=fadebg.children;
 
         if(c.length>0){
             var i
@@ -136,23 +136,29 @@ AFRAME.registerComponent('info-banner',{
     },
 
     handleClickEvents:function(){
-        this.el.addEventListener("click",evt=>{
-            const placesContainer=document.querySelector("#places_container");
-            const {state} = placesContainer.setAttribute("tour")
-
-            if(state==="places_list"){
-                const id=this.el.getAttribute("id");
-                const places_id=["avengers","superman","spiderman","calvin"];
-                if(places_id.includes(id)){
-                    placesContainer.setAttribute("tour",{
-                        state:"view",
-                        selected_card:id
-                    })
-
-                }
-
-            }
+       if(selected_item_id){
+        fadebg.setAttribute("visible",true)
+        fadebg.setAttribute("info-banner",{
+            itemId:selected_item_id
         })
+
+        titlee1.setAttribute("visible",false)
+        cursore1.setAttribute("position",{x:0,y:0,z:-1})
+        cursore1.setAttribute("geometry",{
+            radiusInner:0.03,
+            radiusOuter:0.04
+        })
+       }
+
+       else{
+        fadebg.setAttribute("visible",false)
+        titlee1.setAttribute("visible",true)
+        cursore1.setAttribute("position",{x:0,y:0,z:-3})
+        cursore1.setAttribute("geometry",{
+            radiusInner:0.08,
+            radiusOuter:0.09
+        })
+       }
     },
 
     handleMouseLeaveEvents:function(){

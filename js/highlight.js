@@ -7,7 +7,7 @@ AFRAME.registerComponent('cursor-listener',{
 
     init:function(){
         this.handleMouseEnterEvents();
-        this.handleMouseLeaveEvents();
+    
         this.handleClickEvents()
     },
 
@@ -34,18 +34,7 @@ AFRAME.registerComponent('cursor-listener',{
         })
     },
 
-    handleMouseLeaveEvents:function(){
-        this.el.addEventListener("mouseleave",()=>{
-            const {selected_item_id}=this.data;
-            if(selected_item_id){
-                const el=document.querySelector(`#${selected_item_id}`);
-                const id=el.getAttribute("id")
-                if(id==selected_item_id){
-                    el.setAttribute("material",{color:"yellow",opacity:1})
-                }
-            }
-        })
-    },
+   
 
     handleClickEvents:function(){
         this.el.addEventListener("click",evt=>{
