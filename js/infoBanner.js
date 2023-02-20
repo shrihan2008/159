@@ -11,22 +11,7 @@ AFRAME.registerComponent('info-banner',{
         this.handleMouseLeaveEvents()
 
     },
-    update:function(){
-        const fadebg=document.querySelector("#fadebackground")
-        c=fadebg.children;
-
-        if(c.length>0){
-            var i
-            for(i=0; i<=c.length ;i++){
-                fadebg.removeChild(c[i])
-            }
-           
-
-        }
-        else{
-        this.handleClickEvents()
-        }
-    },
+   
 
     createTitle:function(position,item){
         const entitye1=document.createElement('a-entity')
