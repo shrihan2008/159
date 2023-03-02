@@ -29,9 +29,12 @@ AFRAME.registerComponent('cursor-listener',{
     },
 
     handleMouseEnterEvents:function(){
-        this.el.addEventListener("mouseenter",()=>{
-            this.handlePlacesListState()
-        })
+        this.el.addEventListener("mouseenter", () => { const id = this.el.getAttribute("id"); 
+        const postersId = [ "superman", "spiderman", "captain-aero", "outer-space", ]; i
+        if (postersId.includes(id)) { 
+           const postersContainer = document.querySelector("#posters-container"); 
+           postersContainer.setAttribute("cursor-listener", { selectedItemId: id, }); 
+           this.el.setAttribute("material", { color: "#1565c0" }); } }); 
     },
 
    
@@ -68,4 +71,14 @@ AFRAME.registerComponent('cursor-listener',{
           this.el.setAttribute("visible", false);
         }
       },
+
+      update: function () { 
+        const fadeBackgroundEl = document.querySelector("#fadeBackground"); 
+        
+        c = fadeBackgroundEl.children; 
+        if (c.length > 0) {
+             var i; for (i = 0; i <= c.length; i++) { 
+                fadeBackgroundEl.removeChild(c[i]); } } 
+        else { this.handleMouseClickEvents(); } 
+    },
 })
