@@ -30,7 +30,7 @@ AFRAME.registerComponent('cursor-listener',{
 
     handleMouseEnterEvents:function(){
         this.el.addEventListener("mouseenter", () => { const id = this.el.getAttribute("id"); 
-        const postersId = [ "superman", "spiderman", "captain-aero", "outer-space", ]; i
+        const postersId = [ "superman", "spiderman", "captain-aero", "outer-space", ]; 
         if (postersId.includes(id)) { 
            const postersContainer = document.querySelector("#posters-container"); 
            postersContainer.setAttribute("cursor-listener", { selectedItemId: id, }); 
@@ -79,6 +79,6 @@ AFRAME.registerComponent('cursor-listener',{
         if (c.length > 0) {
              var i; for (i = 0; i <= c.length; i++) { 
                 fadeBackgroundEl.removeChild(c[i]); } } 
-        else { this.handleMouseClickEvents(); } 
+        else { this.handleClickEvents(); } 
     },
 })

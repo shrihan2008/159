@@ -97,7 +97,7 @@ AFRAME.registerComponent('tour',{
     createTitle:function(position,item){
         const entitye1=document.createElement('a-entity')
         entitye1.setAttribute("text",{
-            font:'calibri',
+            font:'dejavu',
             align:'center',
             width:60,
             color:"yellow",
