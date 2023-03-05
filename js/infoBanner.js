@@ -153,7 +153,7 @@ AFRAME.registerComponent('info-banner',{
                 const el=document.querySelector(`#${selected_item_id}`);
                 const id=el.getAttribute("id")
                 if(id==selected_item_id){
-                    el.setAttribute("material",{color:"yellow",opacity:1})
+                    el.setAttribute("material",{color:"red",opacity:1})
                 }
             }
         })
